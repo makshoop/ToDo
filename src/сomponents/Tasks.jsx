@@ -21,8 +21,10 @@
 
 import React, { useState, useEffect } from "react";
 
-export default function App() {
+export function Tasks() {
 	const [tasks, setTasks] = useState([]);
+
+	console.log(tasks);
 
 	useEffect(() => {
 		fetch("http://localhost:3000/tasks")
@@ -33,10 +35,10 @@ export default function App() {
 	function taskComplete(taskId) {
 		const updatedTasks = tasks.map((task) => {
 			if (task.id === taskId) {
-				return { ...task, completed: true };
-			} else {
-				return task;
+				task.completed = !task.completed;
 			}
+			return task;
+			// + запрос для изменения данных на сервере
 		});
 		setTasks(updatedTasks);
 	}
@@ -45,23 +47,23 @@ export default function App() {
 		<div>
 			<h1>Tasks</h1>
 			{tasks.map((task) => (
-				<h3 key={task.id}>
+				<div key={task.id}>
 					<hr />
 					<input
 						type="checkbox"
 						checked={task.completed}
 						onChange={() => taskComplete(task.id)}
 					/>
-					<span
+					<h3
 						style={{
 							textDecoration: task.completed ? "line-through" : "none",
 						}}
 					>
 						{task.title}
-					</span>
-					<h5>{task.description}</h5>
+					</h3>
+					<p>{task.description}</p>
 					<hr />
-				</h3>
+				</div>
 			))}
 		</div>
 	);
