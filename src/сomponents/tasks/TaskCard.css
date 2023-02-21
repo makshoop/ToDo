@@ -1,0 +1,18 @@
+.taskCard {
+    background-color: rgba(246, 246, 246, 0.649);
+    display: flex;
+    width: auto;
+    box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.173);
+    border-radius: 5px;
+    margin: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+}
+
+.taskCard:hover {
+    background-color: rgba(228, 227, 227, 0.874);
+}
+
+.taskCard input {
+    margin: 0 25px 0 20px;
+}

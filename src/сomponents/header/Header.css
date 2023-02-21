@@ -1,0 +1,56 @@
+.header {
+    text-emphasis-color: white;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(94, 94, 255);
+    margin: -10px;
+    height: 40px;
+}
+
+.openSideBar {
+    padding: 4px 0 3px 10px;
+    background: none;
+    border: none;
+    color: aliceblue;
+    font-size: xx-large;
+    text-align: center;
+}
+
+#search-bar {
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    height: 20px;
+    width: 450px;
+    margin: auto 0 auto 0;
+    align-items: center;
+}
+
+.nightMode {
+    padding: 4px 0 3px 0;
+    margin-right: -170px;
+    background: none;
+    border: none;
+    color: aliceblue;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.profile {
+    padding: 4px 10px 3px 10px;
+    background: none;
+    border: none;
+    color: aliceblue;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.header h3 {
+    color: aliceblue;
+    font-family: 'Exo 2', sans-serif;
+    margin: 9.2px 100px 9.2px -110px;
+}
+
+
+
+

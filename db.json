@@ -1,44 +1,9 @@
 {
-    "tasks": [
-        {
-            "id": 1, 
-            "title": "Hello",
-            "description": "World",
-            "completed": false
-        },
-        {
-            "id": 2, 
-            "title": "Hello",
-            "description": "World",
-            "completed": false
-        },
-        {
-            "id": 3, 
-            "title": "Hello",
-            "description": "World",
-            "completed": false
-
-        },
-        {
-            "id": 4, 
-            "title": "Hello",
-            "description": "World",
-            "completed": false
-
-        },
-        {
-            "id": 5, 
-            "title": "Hello",
-            "description": "World",
-            "completed": false
-
-        },
-        {
-            "id": 6, 
-            "title": "Hello",
-            "description": "World",
-            "completed": false
-
-        }
-    ]
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Hello",
+      "completed": false
+    }
+  ]
 }

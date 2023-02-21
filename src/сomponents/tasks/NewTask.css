@@ -1,0 +1,28 @@
+.newTask {
+    display: flex;
+    align-items: center;
+    background-color: rgba(246, 246, 246, 0.649);
+    width: auto;
+    height: 60px;
+    box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.173);
+    border-radius: 5px;
+    margin: 40px 15px 15px 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.newTask input {
+    margin-left: 10px;
+    font-size: x-large;
+    background-color: rgba(246, 246, 246, 0.649);
+    height: 50px;
+    border: none;
+    outline: none;
+    width: 600px
+}
+input:hover {
+    background-color: rgba(228, 227, 227, 0.874);
+
+}
+.newTask:hover {
+    background-color: rgba(228, 227, 227, 0.874);
+}
