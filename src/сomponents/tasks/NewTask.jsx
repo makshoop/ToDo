@@ -36,7 +36,7 @@ export function NewTask({ onAddNewTask }) {
 		<div className="newTask">
 			<form onSubmit={handleSubmit}>
 				<input
-					placeholder="New Task"
+					placeholder="  New Task"
 					type="text"
 					value={newTask}
 					onChange={(event) => setNewTask(event.target.value)}
