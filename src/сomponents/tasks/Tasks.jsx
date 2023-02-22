@@ -48,7 +48,13 @@ export function Tasks() {
 					<input
 						type="checkbox"
 						checked={task.completed}
-						onChange={() => taskComplete(task.id)}
+						onChange={() =>
+							setTasks(
+								tasks.map((t) =>
+									t.id === task.id ? { ...t, completed: !t.completed } : t,
+								),
+							)
+						}
 					/>
 					<p
 						style={{
@@ -65,7 +71,13 @@ export function Tasks() {
 					<input
 						type="checkbox"
 						checked={task.completed}
-						onChange={() => taskComplete(task.id)}
+						onChange={() =>
+							setTasks(
+								tasks.map((t) =>
+									t.id === task.id ? { ...t, completed: !t.completed } : t,
+								),
+							)
+						}
 					/>
 					<p
 						style={{

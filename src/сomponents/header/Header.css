@@ -1,23 +1,6 @@
-/* .header {
-    text-emphasis-color: white;
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(94, 94, 255);
-    margin: -10px;
-    height: 40px;
-}
-
-.openSideBar {
-    padding: 4px 0 3px 10px;
-    background: none;
-    border: none;
-    color: aliceblue;
-    font-size: xx-large;
-    text-align: center;
-}
-
 #search-bar {
     border: none;
+    outline: none;
     border-radius: 5px;
     color: aliceblue;
     height: 20px;
@@ -26,36 +9,30 @@
     align-items: center;
 }
 
-.nightMode {
-    padding: 4px 0 3px 0;
-    margin-right: -170px;
-    background: none;
-    border: none;
-    color: aliceblue;
-    font-size: xx-large;
-    text-align: center;
-}
 
 .profile {
-    padding: 4px 10px 3px 10px;
+    margin-top: 9px;
     background: none;
     border: none;
-    color: aliceblue;
+    color: #4051b5;
     font-size: xx-large;
-    text-align: center;
+    /* text-align: center; */
 }
 
-.header h3 {
-    color: aliceblue;
-    font-family: 'Exo 2', sans-serif;
-    margin: 9.2px 100px 9.2px -110px;
-} */
+.appHeader h3 {
+    color: #4051b5;
+    font-size: xx-large;
+    font-weight: 800;
+    font-family: 'Mynerve', cursive;
+
+} 
 
 .appHeader {
-    background: lightblue;
-    height: 6rem;
+    background: #90caf9;
+    height: 3rem;
     display: flex;
     justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 

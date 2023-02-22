@@ -9,6 +9,7 @@ export function NewTask() {
 		const newTaskItem = {
 			id: Date.now(),
 			title: newTask,
+			completed: false,
 		};
 
 		fetch("http://localhost:3000/tasks", {
@@ -23,6 +24,7 @@ export function NewTask() {
 			.catch((error) => console.error(error));
 
 		setNewTask("");
+		onNewTask(newTaskItem);
 	};
 
 	return (

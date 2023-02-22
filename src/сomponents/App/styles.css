@@ -1,4 +1,10 @@
 .tasks-container {
     padding: 4rem 2rem;
+    width: 100%;
     /* background-color: rgb(235, 235, 235); */
+}
+
+.appMain {
+    display: flex;
+    min-height: 100vh;
 }

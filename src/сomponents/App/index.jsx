@@ -10,7 +10,7 @@ export function App() {
 	return (
 		<>
 			<Header />
-			<main>
+			<main className="appMain">
 				<Sidebar />
 				<div className="tasks-container">
 					<NewTask />
