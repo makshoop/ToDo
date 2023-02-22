@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NewTask } from "./NewTask";
 
 export function Tasks() {
 	const [tasks, setTasks] = useState([]);
@@ -33,9 +34,15 @@ export function Tasks() {
 	const completedTasks = tasks.filter((task) => task.completed);
 	const uncompletedTasks = tasks.filter((task) => !task.completed);
 
+	// const addNewTask = (text) => {
+	// 	setTasks(
+	// 		// тут массив предыдущих задач + новая
+	// 	)
+	// }
+
 	return (
 		<div>
-			<h1>Tasks</h1>
+			<h1 className="tasksTitle">Tasks</h1>
 			{uncompletedTasks.map((task) => (
 				<div className="taskCard" key={task.id}>
 					<input
@@ -52,7 +59,7 @@ export function Tasks() {
 					</p>
 				</div>
 			))}
-			<h2>Completed</h2>
+			<h2 className="tasksTitle">Completed</h2>
 			{completedTasks.map((task) => (
 				<div className="taskCard" key={task.id}>
 					<input

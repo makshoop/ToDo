@@ -1,4 +1,4 @@
-.header {
+/* .header {
     text-emphasis-color: white;
     display: flex;
     justify-content: space-between;
@@ -49,8 +49,15 @@
     color: aliceblue;
     font-family: 'Exo 2', sans-serif;
     margin: 9.2px 100px 9.2px -110px;
-}
+} */
 
+.appHeader {
+    background: lightblue;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
