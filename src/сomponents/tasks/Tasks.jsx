@@ -34,14 +34,13 @@ export function Tasks() {
 	const completedTasks = tasks.filter((task) => task.completed);
 	const uncompletedTasks = tasks.filter((task) => !task.completed);
 
-	// const addNewTask = (text) => {
-	// 	setTasks(
-	// 		// тут массив предыдущих задач + новая
-	// 	)
-	// }
+	const addNewTask = (newTask) => {
+		setTasks([...tasks, newTask]);
+	};
 
 	return (
 		<div>
+			<NewTask onAddNewTask={addNewTask} />
 			<h1 className="tasksTitle">Tasks</h1>
 			{uncompletedTasks.map((task) => (
 				<div className="taskCard" key={task.id}>

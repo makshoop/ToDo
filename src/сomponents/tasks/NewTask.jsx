@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function NewTask() {
+export function NewTask({ onAddNewTask }) {
 	const [newTask, setNewTask] = useState("");
 
 	const handleSubmit = (event) => {
@@ -20,11 +20,16 @@ export function NewTask() {
 			body: JSON.stringify(newTaskItem),
 		})
 			.then((response) => response.json())
-			.then((data) => console.log(data))
+			.then((data) => onAddNewTask(data))
 			.catch((error) => console.error(error));
 
 		setNewTask("");
-		onNewTask(newTaskItem);
+	};
+
+	const handleKeyDown = (event) => {
+		if (event.key === "Enter") {
+			handleSubmit(event);
+		}
 	};
 
 	return (
@@ -35,6 +40,7 @@ export function NewTask() {
 					type="text"
 					value={newTask}
 					onChange={(event) => setNewTask(event.target.value)}
+					onKeyDown={handleKeyDown}
 				/>
 			</form>
 		</div>

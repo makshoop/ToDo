@@ -13,7 +13,6 @@ export function App() {
 			<main className="appMain">
 				<Sidebar />
 				<div className="tasks-container">
-					<NewTask />
 					<Tasks />
 				</div>
 			</main>
