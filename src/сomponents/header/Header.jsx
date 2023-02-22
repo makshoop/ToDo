@@ -6,7 +6,7 @@ import { WiMoonAltWaningCrescent4 } from "react-icons/wi";
 export function Header() {
 	return (
 		<div className="header">
-			<button className="openSideBar">
+			{/* <button className="openSideBar">
 				<FiGrid />
 			</button>
 			<h3>(MH)ToDo</h3>
@@ -15,8 +15,8 @@ export function Header() {
 				<WiMoonAltWaningCrescent4 />
 			</button>
 			<button className="profile">
-				<MdAccountCircle />
-			</button>
+				<MdAccountCircle /> */}
+			{/* </button> */}
 		</div>
 	);
 }
