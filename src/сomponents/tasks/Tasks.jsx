@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { NewTask } from "./NewTask";
 
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { FiChevronDown } from "react-icons/fi";
+import { FiChevronUp } from "react-icons/fi";
 
 export function Tasks() {
 	const [tasks, setTasks] = useState([]);
+	const [showCompleted, setShowCompleted] = useState(false);
 
 	console.log(tasks);
 
@@ -36,6 +39,10 @@ export function Tasks() {
 	const completedTasks = tasks.filter((task) => task.completed);
 	const uncompletedTasks = tasks.filter((task) => !task.completed);
 
+	const toggleShowCompleted = () => {
+		setShowCompleted(!showCompleted);
+	};
+
 	const addNewTask = (newTask) => {
 		setTasks([...tasks, newTask]);
 	};
@@ -49,13 +56,7 @@ export function Tasks() {
 					<input
 						type="checkbox"
 						checked={task.completed}
-						onChange={() =>
-							setTasks(
-								tasks.map((t) =>
-									t.id === task.id ? { ...t, completed: !t.completed } : t,
-								),
-							)
-						}
+						onChange={() => taskComplete(task.id)}
 					/>
 					<p
 						style={{
@@ -69,32 +70,32 @@ export function Tasks() {
 					</button>
 				</div>
 			))}
-			<h2 className="tasksTitle">Completed</h2>
-			{completedTasks.map((task) => (
-				<div className="taskCard" key={task.id}>
-					<input
-						type="checkbox"
-						checked={task.completed}
-						onChange={() =>
-							setTasks(
-								tasks.map((t) =>
-									t.id === task.id ? { ...t, completed: !t.completed } : t,
-								),
-							)
-						}
-					/>
-					<p
-						style={{
-							textDecoration: task.completed ? "line-through" : "none",
-						}}
-					>
-						{task.title}
-					</p>
-					<button className="deleteTaskButton">
-						<RiDeleteBin5Fill />
-					</button>
+			<div className="completedBlock">
+				<h2 className="tasksTitle">Completed</h2>
+				<button onClick={toggleShowCompleted}>
+					{showCompleted ? <FiChevronUp /> : <FiChevronDown />}
+				</button>
+			</div>
+			{showCompleted && (
+				<div>
+					{completedTasks.map((task) => (
+						<div className="taskCard" key={task.id}>
+							<input
+								type="checkbox"
+								checked={task.completed}
+								onChange={() => taskComplete(task.id)}
+							/>
+							<p
+								style={{
+									textDecoration: task.completed ? "line-through" : "none",
+								}}
+							>
+								{task.title}
+							</p>
+						</div>
+					))}
 				</div>
-			))}
+			)}
 		</div>
 	);
 }

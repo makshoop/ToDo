@@ -37,7 +37,19 @@
 
 }
 
+.completedBlock {
+    display: flex;
+}
 
+.completedBlock button {
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    color: #4051b5;
+    margin-top: 9px;
+}
 
 @media (width < 700px) {
     .tasksTitle {
