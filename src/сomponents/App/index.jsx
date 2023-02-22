@@ -1,7 +1,6 @@
 import React from "react";
 import { Tasks } from "../tasks/Tasks";
 import { Header } from "../header/Header";
-import { NewTask } from "../tasks/NewTask";
 import { Sidebar } from "../Sidebar";
 
 import "./styles.css";

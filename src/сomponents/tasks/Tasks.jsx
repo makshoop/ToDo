@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { NewTask } from "./NewTask";
 
+import { RiDeleteBin5Fill } from "react-icons/ri";
+
 export function Tasks() {
 	const [tasks, setTasks] = useState([]);
 
@@ -62,6 +64,9 @@ export function Tasks() {
 					>
 						{task.title}
 					</p>
+					<button className="deleteTaskButton">
+						<RiDeleteBin5Fill />
+					</button>
 				</div>
 			))}
 			<h2 className="tasksTitle">Completed</h2>
@@ -85,6 +90,9 @@ export function Tasks() {
 					>
 						{task.title}
 					</p>
+					<button className="deleteTaskButton">
+						<RiDeleteBin5Fill />
+					</button>
 				</div>
 			))}
 		</div>

@@ -16,12 +16,13 @@
     border: none;
     color: #4051b5;
     font-size: xx-large;
+    cursor: pointer;
     /* text-align: center; */
 }
 
 .appHeader h3 {
     color: #4051b5;
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: 800;
     font-family: 'Mynerve', cursive;
 
@@ -36,5 +37,13 @@
     align-items: center;
 }
 
+@media (width < 700px) {
+    .appHeader h3 {
+        font-size: large;
+    }
 
+    #search-bar {
+        width: auto;
+    }
+}
 
