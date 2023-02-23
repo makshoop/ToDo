@@ -4,6 +4,8 @@ import { NewTask } from "./NewTask";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiTwotoneStar } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export function Tasks() {
@@ -35,6 +37,7 @@ export function Tasks() {
 				const updatedTask = {
 					...task,
 					completed: !task.completed,
+					important: task.important,
 				};
 				fetch(`http://localhost:3000/tasks/${taskId}`, {
 					method: "PUT",
@@ -60,6 +63,25 @@ export function Tasks() {
 		});
 	}
 
+	function toggleImportant(taskId) {
+		const updatedTasks = tasks.map((task) => {
+			if (task.id === taskId) {
+				const updatedTask = {
+					...task,
+					important: !task.important,
+				};
+				fetch(`http://localhost:3000/tasks/${taskId}`, {
+					method: "PUT",
+					body: JSON.stringify(updatedTask),
+					headers: { "Content-Type": "application/json" },
+				});
+				return updatedTask;
+			}
+			return task;
+		});
+		setTasks(updatedTasks);
+	}
+
 	const toggleShowCompleted = () => {
 		setShowCompleted(!showCompleted);
 	};
@@ -75,25 +97,41 @@ export function Tasks() {
 			<NewTask onAddNewTask={addNewTask} />
 			<h1 className="tasksTitle">Tasks</h1>
 			{uncompletedTasks.map((task) => (
-				<div className="taskCard" key={task.id}>
+				<div
+					className="taskCard"
+					key={task.id}
+					style={{
+						border: task.important ? "2px solid #4051b5" : "none",
+					}}
+				>
 					<input
 						type="checkbox"
 						checked={task.completed}
 						onChange={() => taskComplete(task.id)}
 					/>
-					<p
-						style={{
-							textDecoration: task.completed ? "line-through" : "none",
-						}}
-					>
-						{task.title}
-					</p>
-					<button
-						className="deleteTaskButton"
-						onClick={() => deleteTask(task.id)}
-					>
-						<RiDeleteBin5Fill />
-					</button>
+					<label>
+						<p
+							style={{
+								textDecoration: task.completed ? "line-through" : "none",
+							}}
+						>
+							{task.title}
+						</p>
+					</label>
+					<div className="taskButtons">
+						<button
+							className="importantTaskButton"
+							onClick={() => toggleImportant(task.id)}
+						>
+							{task.important ? <AiTwotoneStar /> : <AiOutlineStar />}
+						</button>
+						<button
+							className="deleteTaskButton"
+							onClick={() => deleteTask(task.id)}
+						>
+							<RiDeleteBin5Fill />
+						</button>
+					</div>
 				</div>
 			))}
 			<div className="completedBlock">
@@ -105,7 +143,13 @@ export function Tasks() {
 			{showCompleted && (
 				<div ref={parent}>
 					{completedTasks.map((task) => (
-						<div className="taskCard" key={task.id}>
+						<div
+							className="taskCard"
+							key={task.id}
+							style={{
+								border: task.important ? "2px solid #4051b5" : "none",
+							}}
+						>
 							<input
 								type="checkbox"
 								checked={task.completed}
@@ -118,12 +162,20 @@ export function Tasks() {
 							>
 								{task.title}
 							</p>
-							<button
-								className="deleteTaskButton"
-								onClick={() => deleteTask(task.id)}
-							>
-								<RiDeleteBin5Fill />
-							</button>
+							<div className="taskButtons">
+								<button
+									className="importantTaskButton"
+									onClick={() => toggleImportant(task.id)}
+								>
+									{task.important ? <AiTwotoneStar /> : <AiOutlineStar />}
+								</button>
+								<button
+									className="deleteTaskButton"
+									onClick={() => deleteTask(task.id)}
+								>
+									<RiDeleteBin5Fill />
+								</button>
+							</div>
 						</div>
 					))}
 				</div>

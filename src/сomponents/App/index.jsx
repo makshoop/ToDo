@@ -11,7 +11,7 @@ export function App() {
 			<Header />
 			<main className="appMain">
 				<Sidebar />
-				<div className="tasks-container">
+				<div className="tasksContainer">
 					<Tasks />
 				</div>
 			</main>
