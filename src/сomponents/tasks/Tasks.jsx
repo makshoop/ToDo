@@ -4,6 +4,7 @@ import { NewTask } from "./NewTask";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export function Tasks() {
 	const [tasks, setTasks] = useState([]);
@@ -47,8 +48,10 @@ export function Tasks() {
 		setTasks([...tasks, newTask]);
 	};
 
+	const [parent] = useAutoAnimate();
+
 	return (
-		<div>
+		<div ref={parent}>
 			<NewTask onAddNewTask={addNewTask} />
 			<h1 className="tasksTitle">Tasks</h1>
 			{uncompletedTasks.map((task) => (
