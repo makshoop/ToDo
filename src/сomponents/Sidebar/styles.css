@@ -1,8 +1,3 @@
- *{
-    box-sizing: border-box;
-} 
-
-
 .sidebar{
     display: flex;
     flex-direction: column;
@@ -31,10 +26,11 @@
     padding-right: 20px;
 }
 
-.sidebar i {
+/* TODO разобраться с цветом иконки */
+/* .sidebar svg {
     color: #4051b5;
 
-}
+} */
 .sidebar button{
     height: 60px;
     background: transparent;
@@ -73,14 +69,6 @@
 
 
 @media (width < 700px){
-    .toDoIcon{
-        display: none;
-    }
-
-    .toDoIcon{
-        display: block;
-    }
-
     .sidebarHeader p{
         display: none;
     }

@@ -12,41 +12,31 @@ export function Sidebar() {
 	return (
 		<aside className="sidebar">
 			<header className="sidebarHeader">
-				<i className="toDoIcon">
-					<FcTodoList />
-				</i>
+				<FcTodoList />
 				<p>To Do</p>
 			</header>
 			<nav>
-				<button>
+				<button type="button">
 					<span>
-						<i className="toDoIcon">
-							<FiCalendar />
-						</i>
+						<FiCalendar />
 						<span>ToDay</span>
 					</span>
 				</button>
-				<button>
+				<button type="button">
 					<span>
-						<i className="importantIcon">
-							<FiWatch />
-						</i>
+						<FiWatch />
 						<span>Important</span>
 					</span>
 				</button>
-				<button>
+				<button type="button">
 					<span>
-						<i className="plannedIcon">
-							<FiBriefcase />
-						</i>
+						<FiBriefcase />
 						<span>Planned</span>
 					</span>
 				</button>
-				<button>
+				<button type="button">
 					<span>
-						<i className="allTasksIcon">
-							<FiBook />
-						</i>
+						<FiBook />
 						<span>All Tasks</span>
 					</span>
 				</button>
