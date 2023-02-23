@@ -1,44 +1,19 @@
 {
   "tasks": [
     {
-      "id": 1,
+      "id": 1677181409820,
+      "title": "123123",
+      "completed": true
+    },
+    {
+      "id": 1677182063484,
       "title": "Hello",
       "completed": false
     },
     {
-      "id": 1677108956012,
-      "title": "Вот",
+      "id": 1677182414585,
+      "title": "123123123",
       "completed": false
-    },
-    {
-      "id": 1677108960622,
-      "title": "Сразу добавляются",
-      "completed": false
-    },
-    {
-      "id": 1677108966423,
-      "title": "И кнопку удаления добавил",
-      "completed": false
-    },
-    {
-      "id": 1677108969750,
-      "title": "Не видно?",
-      "completed": false
-    },
-    {
-      "id": 1677108975835,
-      "title": "А так?)",
-      "completed": true
-    },
-    {
-      "id": 1677108999083,
-      "title": "И немножко адаптива",
-      "completed": true
-    },
-    {
-      "id": 1677109001390,
-      "title": "чуть-чуть",
-      "completed": true
     }
   ]
 }

@@ -18,6 +18,17 @@ export function Tasks() {
 			.then((data) => setTasks(data));
 	}, []);
 
+	useEffect(() => {
+		const showCompletedFromStorage = JSON.parse(
+			localStorage.getItem("showCompleted"),
+		);
+		setShowCompleted(showCompletedFromStorage ?? false);
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem("showCompleted", JSON.stringify(showCompleted));
+	}, [showCompleted]);
+
 	function taskComplete(taskId) {
 		const updatedTasks = tasks.map((task) => {
 			if (task.id === taskId) {
@@ -39,6 +50,15 @@ export function Tasks() {
 
 	const completedTasks = tasks.filter((task) => task.completed);
 	const uncompletedTasks = tasks.filter((task) => !task.completed);
+
+	function deleteTask(taskId) {
+		fetch(`http://localhost:3000/tasks/${taskId}`, {
+			method: "DELETE",
+		}).then(() => {
+			const updatedTasks = tasks.filter((task) => task.id !== taskId);
+			setTasks(updatedTasks);
+		});
+	}
 
 	const toggleShowCompleted = () => {
 		setShowCompleted(!showCompleted);
@@ -68,7 +88,10 @@ export function Tasks() {
 					>
 						{task.title}
 					</p>
-					<button className="deleteTaskButton">
+					<button
+						className="deleteTaskButton"
+						onClick={() => deleteTask(task.id)}
+					>
 						<RiDeleteBin5Fill />
 					</button>
 				</div>
@@ -80,7 +103,7 @@ export function Tasks() {
 				</button>
 			</div>
 			{showCompleted && (
-				<div>
+				<div ref={parent}>
 					{completedTasks.map((task) => (
 						<div className="taskCard" key={task.id}>
 							<input
@@ -95,6 +118,12 @@ export function Tasks() {
 							>
 								{task.title}
 							</p>
+							<button
+								className="deleteTaskButton"
+								onClick={() => deleteTask(task.id)}
+							>
+								<RiDeleteBin5Fill />
+							</button>
 						</div>
 					))}
 				</div>

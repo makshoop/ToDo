@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export function NewTask({ onAddNewTask }) {
 	const [newTask, setNewTask] = useState("");
+
+	useEffect(() => {
+		const storedNewTask = localStorage.getItem("newTask");
+		if (storedNewTask) {
+			setNewTask(storedNewTask);
+		}
+	}, []);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -10,6 +17,9 @@ export function NewTask({ onAddNewTask }) {
 			id: Date.now(),
 			title: newTask,
 			completed: false,
+			today: false,
+			important: false,
+			planned: false,
 		};
 
 		fetch("http://localhost:3000/tasks", {
@@ -24,6 +34,8 @@ export function NewTask({ onAddNewTask }) {
 			.catch((error) => console.error(error));
 
 		setNewTask("");
+
+		localStorage.setItem("newTask", "");
 	};
 
 	const handleKeyDown = (event) => {
@@ -39,7 +51,10 @@ export function NewTask({ onAddNewTask }) {
 					placeholder="  New Task"
 					type="text"
 					value={newTask}
-					onChange={(event) => setNewTask(event.target.value)}
+					onChange={(event) => {
+						setNewTask(event.target.value);
+						localStorage.setItem("newTask", event.target.value);
+					}}
 					onKeyDown={handleKeyDown}
 				/>
 			</form>
