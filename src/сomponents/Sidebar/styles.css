@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 23%;
     min-height: 100vh;
     padding: 40px 10px 30px 10px;
     background: #fff;
@@ -14,7 +13,6 @@
     display: flex;
     align-items: center;
     justify-content:flex-start;
-    font-size: x-large;
     width: 100%;
     margin-bottom: 24px;
     font-family: 'Mynerve', cursive;
@@ -22,15 +20,7 @@
     font-size: xx-large;
     color: #4051b5;
 }
-.sidebarHeader i {
-    margin-top: 9px;
-    padding-right: 20px;
-}
 
-.sidebar i {
-    color: #4051b5;
-
-}
 .sidebar button{
     height: 60px;
     background: transparent;
@@ -42,7 +32,7 @@
 
 .sidebar button > span{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     gap: 12px;
     height: 48px;
     padding: 0 12px;
@@ -60,6 +50,7 @@
 }
 
 .sidebar button span svg{
+    font-size: 25px;
     color:#4051b5
 }
 
@@ -73,13 +64,19 @@
 
 
 @media (width < 700px){
-
-  
-    /* .sidebar button span {
+    .sidebar button span {
         display: none;
-    } */
-    .sidebar button span svg{
-        display: block;
+    }
+
+    .sidebar button > span {
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+    }
+
+    header.sidebarHeader {
+        justify-content: center;
+        font-size: 50px;
     }
     
     .sidebarHeader p{
@@ -94,9 +91,9 @@
         width: 50px;
     }
 
-    /* .sidebar button > span > span{
+    .sidebar button > span > span{
         opacity: 0;
         visibility: hidden;
-    } */
+    }
 
 }

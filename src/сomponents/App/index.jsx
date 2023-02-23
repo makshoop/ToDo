@@ -10,7 +10,7 @@ export function App() {
 		<>
 			<Header />
 			<main className="appMain">
-				<Sidebar />
+				<Sidebar isOpen={true} />
 				<div className="tasksContainer">
 					<Tasks />
 				</div>

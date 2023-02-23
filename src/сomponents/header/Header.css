@@ -9,6 +9,15 @@
     align-items: center;
 }
 
+.openSidebarButton {
+    margin-top: 9px;
+    margin-right: 30px;
+    background: none;
+    border: none;
+    color: #4051b5;
+    font-size: xx-large;
+    cursor: pointer;
+}
 
 .profile {
     margin-top: 9px;
@@ -17,7 +26,6 @@
     color: #4051b5;
     font-size: xx-large;
     cursor: pointer;
-    /* text-align: center; */
 }
 
 .appHeader h3 {
@@ -33,7 +41,7 @@
     height: 3rem;
     display: flex;
     justify-content: center;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 

@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./styles.css";
 
 import { FcTodoList } from "react-icons/fc";
@@ -8,9 +7,10 @@ import { FiBriefcase } from "react-icons/fi";
 import { FiBook } from "react-icons/fi";
 import { FiWatch } from "react-icons/fi";
 
-export function Sidebar() {
+export function Sidebar({ isOpen }) {
+	const sidebarWidth = isOpen ? "250px" : "70px";
 	return (
-		<aside className="sidebar">
+		<aside className="sidebar" style={{ width: sidebarWidth }}>
 			<header className="sidebarHeader">
 				<FcTodoList />
 				<p>To Do</p>

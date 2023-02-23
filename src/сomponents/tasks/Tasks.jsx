@@ -101,7 +101,7 @@ export function Tasks() {
 					className="taskCard"
 					key={task.id}
 					style={{
-						border: task.important ? "2px solid #4051b5" : "none",
+						border: task.important ? "0.1em solid #4051b5" : "none",
 					}}
 				>
 					<input
@@ -147,7 +147,7 @@ export function Tasks() {
 							className="taskCard"
 							key={task.id}
 							style={{
-								border: task.important ? "2px solid #4051b5" : "none",
+								border: task.important ? "0.1em solid #4051b5" : "none",
 							}}
 						>
 							<input
