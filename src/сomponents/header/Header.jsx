@@ -4,7 +4,7 @@ import { HiViewList } from "react-icons/hi";
 import { LoginCard } from "../LoginCard";
 import { Sidebar } from "../sidebar";
 
-export function Header() {
+export function Header({ toggleSidebarVisible }) {
 	const [showLoginCard, setShowLoginCard] = useState(false);
 
 	const handleToggleLoginCard = () => {
@@ -14,7 +14,7 @@ export function Header() {
 	return (
 		<header className="appHeader">
 			<div style={{ display: "flex" }}>
-				<button className="openSidebarButton">
+				<button className="openSidebarButton" onClick={toggleSidebarVisible}>
 					<HiViewList />
 				</button>
 				<h3>makshoop To Do</h3>
