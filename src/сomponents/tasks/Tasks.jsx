@@ -183,3 +183,15 @@ export function Tasks() {
 		</div>
 	);
 }
+
+export function Planned() {
+	return <h1 className="tasksTitle">Planned</h1>;
+}
+
+export function Important() {
+	return <h1 className="tasksTitle">Important</h1>;
+}
+
+export function Today() {
+	return <h1 className="tasksTitle">Today</h1>;
+}
