@@ -7,8 +7,9 @@ import { FiChevronUp } from "react-icons/fi";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiTwotoneStar } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import dayjs from "dayjs";
 
-export function Tasks({ title, tasks, setTasks }) {
+export function Tasks({ title, tasks, setTasks, isImportantPage }) {
 	const [showCompleted, setShowCompleted] = useState(false);
 
 	console.log(tasks);
@@ -87,7 +88,7 @@ export function Tasks({ title, tasks, setTasks }) {
 
 	return (
 		<div ref={parent}>
-			<NewTask onAddNewTask={addNewTask} />
+			<NewTask onAddNewTask={addNewTask} isImportantPage={isImportantPage} />
 			<h1 className="tasksTitle">{title}</h1>
 			{uncompletedTasks.map((task) => (
 				<div
@@ -114,7 +115,7 @@ export function Tasks({ title, tasks, setTasks }) {
 
 					<p>
 						----
-						{task.date1}
+						{dayjs(task.date).format("DD.MM.YYYY")}
 					</p>
 					<div className="taskButtons">
 						<button
@@ -193,7 +194,14 @@ export function Planned() {
 export function Important({ tasks, setTasks }) {
 	const importantTasks = tasks.filter((task) => task.important);
 
-	return <Tasks title="Important" tasks={importantTasks} setTasks={setTasks} />;
+	return (
+		<Tasks
+			title="Important"
+			tasks={importantTasks}
+			setTasks={setTasks}
+			isImportantPage={true}
+		/>
+	);
 }
 
 export function Today() {

@@ -1,8 +1,8 @@
+import dayjs from "dayjs";
 import React, { useState, useEffect } from "react";
 
-export function NewTask({ onAddNewTask }) {
+export function NewTask({ onAddNewTask, isImportantPage }) {
 	const [newTask, setNewTask] = useState("");
-	const [date1, setDate1] = useState(null);
 	const [date, setDate] = useState(null);
 
 	useEffect(() => {
@@ -20,10 +20,9 @@ export function NewTask({ onAddNewTask }) {
 			title: newTask,
 			completed: false,
 			today: false,
-			important: false,
+			important: isImportantPage ? true : false,
 			planned: date !== null,
 			date: date,
-			date1: date1,
 		};
 
 		fetch("http://localhost:3000/tasks", {
@@ -39,7 +38,6 @@ export function NewTask({ onAddNewTask }) {
 
 		setNewTask("");
 		setDate(null);
-		setDate1(null);
 
 		localStorage.setItem("newTask", "");
 	};
@@ -70,14 +68,10 @@ export function NewTask({ onAddNewTask }) {
 					min="1970-01-01"
 					max="2030-12-31"
 					onChange={(event) => {
-						setDate1(event.target.value);
-						setDate(Date.parse(event.target.value));
+						setDate(dayjs(event.target.value));
 					}}
 				/>
-				<button type="submit" onClick={handleSubmit}>
-					{" "}
-					SAVE{" "}
-				</button>
+				<button type="submit"> SAVE </button>
 			</form>
 		</div>
 	);
