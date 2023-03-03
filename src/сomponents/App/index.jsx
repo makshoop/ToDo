@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Today, Important, Planned, Tasks } from "../tasks/Tasks";
+import { Today, Important, Planned, All } from "../tasks/Tasks";
 import { Header } from "../header/Header";
 import { Sidebar } from "../Sidebar";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -10,6 +10,15 @@ import "./styles.css";
 
 export function App() {
 	const [isSidebarVisible, setSidebarVisible] = useState(true);
+
+	// вынести сюда стейт из tasks и получение данных
+	const [tasks, setTasks] = useState([]);
+
+	useEffect(() => {
+		fetch("http://localhost:3000/tasks")
+			.then((response) => response.json())
+			.then((data) => setTasks(data));
+	}, []);
 
 	const toggleSidebarVisible = () => {
 		setSidebarVisible(!isSidebarVisible);
@@ -25,9 +34,15 @@ export function App() {
 				<div className="tasksContainer">
 					<Routes>
 						<Route path="/today" element={<Today />} />
-						<Route path="/important" element={<Important />} />
+						<Route
+							path="/important"
+							element={<Important tasks={tasks} setTasks={setTasks} />}
+						/>
 						<Route path="/planned" element={<Planned />} />
-						<Route path="/all" element={<Tasks />} />
+						<Route
+							path="/all"
+							element={<All tasks={tasks} setTasks={setTasks} />}
+						/>
 					</Routes>
 				</div>
 			</main>

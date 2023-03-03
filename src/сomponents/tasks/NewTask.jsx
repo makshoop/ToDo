@@ -57,6 +57,10 @@ export function NewTask({ onAddNewTask }) {
 					}}
 					onKeyDown={handleKeyDown}
 				/>
+				<button type="submit" onClick={handleSubmit}>
+					{" "}
+					SAVE{" "}
+				</button>
 			</form>
 		</div>
 	);

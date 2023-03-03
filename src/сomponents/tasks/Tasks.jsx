@@ -8,17 +8,10 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiTwotoneStar } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
-export function Tasks() {
-	const [tasks, setTasks] = useState([]);
+export function Tasks({ title, tasks, setTasks }) {
 	const [showCompleted, setShowCompleted] = useState(false);
 
 	console.log(tasks);
-
-	useEffect(() => {
-		fetch("http://localhost:3000/tasks")
-			.then((response) => response.json())
-			.then((data) => setTasks(data));
-	}, []);
 
 	useEffect(() => {
 		const showCompletedFromStorage = JSON.parse(
@@ -95,7 +88,7 @@ export function Tasks() {
 	return (
 		<div ref={parent}>
 			<NewTask onAddNewTask={addNewTask} />
-			<h1 className="tasksTitle">Tasks</h1>
+			<h1 className="tasksTitle">{title}</h1>
 			{uncompletedTasks.map((task) => (
 				<div
 					className="taskCard"
@@ -184,12 +177,20 @@ export function Tasks() {
 	);
 }
 
+export function All({ tasks, setTasks }) {
+	return <Tasks title="Tasks" tasks={tasks} setTasks={setTasks} />;
+}
+
 export function Planned() {
 	return <h1 className="tasksTitle">Planned</h1>;
 }
 
-export function Important() {
-	return <h1 className="tasksTitle">Important</h1>;
+export function Important({ tasks, setTasks }) {
+	// фильтрация tasks
+
+	const importantTasks = tasks.filter((task) => task.important);
+
+	return <Tasks title="Important" tasks={importantTasks} setTasks={setTasks} />;
 }
 
 export function Today() {
