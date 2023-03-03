@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 export function NewTask({ onAddNewTask }) {
 	const [newTask, setNewTask] = useState("");
+	const [date1, setDate1] = useState(null);
+	const [date, setDate] = useState(null);
 
 	useEffect(() => {
 		const storedNewTask = localStorage.getItem("newTask");
@@ -19,7 +21,9 @@ export function NewTask({ onAddNewTask }) {
 			completed: false,
 			today: false,
 			important: false,
-			planned: false,
+			planned: date !== null, // set planned to true if date is selected
+			date: date,
+			date1: date1,
 		};
 
 		fetch("http://localhost:3000/tasks", {
@@ -34,6 +38,8 @@ export function NewTask({ onAddNewTask }) {
 			.catch((error) => console.error(error));
 
 		setNewTask("");
+		setDate(null);
+		setDate1(null);
 
 		localStorage.setItem("newTask", "");
 	};
@@ -56,6 +62,17 @@ export function NewTask({ onAddNewTask }) {
 						localStorage.setItem("newTask", event.target.value);
 					}}
 					onKeyDown={handleKeyDown}
+				/>
+				<input
+					type="date"
+					id="start"
+					name="trip-start"
+					min="1970-01-01"
+					max="2030-12-31"
+					onChange={(event) => {
+						setDate1(event.target.value);
+						setDate(Date.parse(event.target.value));
+					}}
 				/>
 				<button type="submit" onClick={handleSubmit}>
 					{" "}

@@ -111,6 +111,11 @@ export function Tasks({ title, tasks, setTasks }) {
 							{task.title}
 						</p>
 					</label>
+
+					<p>
+						----
+						{task.date1}
+					</p>
 					<div className="taskButtons">
 						<button
 							className="importantTaskButton"

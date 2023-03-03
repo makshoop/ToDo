@@ -1,28 +1,23 @@
 {
   "tasks": [
     {
-      "id": 1677801035267,
-      "title": "123",
+      "id": 1677803759685,
+      "title": "переехать в черногорию до ",
       "completed": false,
-      "today": false,
-      "important": false,
-      "planned": false
-    },
-    {
-      "id": 1677801144192,
-      "title": "123",
-      "completed": false,
-      "today": false,
-      "important": false,
-      "planned": false
-    },
-    {
-      "id": 1677802694397,
-      "title": "123123123",
-      "completed": true,
       "today": false,
       "important": true,
-      "planned": false
+      "planned": false,
+      "date": "2023-03-21"
+    },
+    {
+      "id": 1677804774229,
+      "title": "123213123",
+      "completed": false,
+      "today": false,
+      "important": false,
+      "planned": true,
+      "date": 1679616000000,
+      "date1": "2023-03-24"
     }
   ]
 }
