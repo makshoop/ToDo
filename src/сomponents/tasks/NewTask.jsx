@@ -1,7 +1,12 @@
 import dayjs from "dayjs";
 import React, { useState, useEffect } from "react";
 
-export function NewTask({ onAddNewTask, isImportantPage }) {
+export function NewTask({
+	onAddNewTask,
+	isImportantTask,
+	isTodayTask,
+	isDateSelected,
+}) {
 	const [newTask, setNewTask] = useState("");
 	const [date, setDate] = useState(null);
 
@@ -19,9 +24,9 @@ export function NewTask({ onAddNewTask, isImportantPage }) {
 			id: Date.now(),
 			title: newTask,
 			completed: false,
-			important: isImportantPage ? true : false,
+			important: isImportantTask ? true : false,
 			planned: date !== null,
-			date: date,
+			date: isTodayTask ? dayjs() : date,
 		};
 
 		fetch("http://localhost:3000/tasks", {
@@ -47,6 +52,10 @@ export function NewTask({ onAddNewTask, isImportantPage }) {
 		}
 	};
 
+	const handleDateChange = (event) => {
+		setDate(dayjs(event.target.value));
+	};
+
 	return (
 		<div className="newTask">
 			<form onSubmit={handleSubmit}>
@@ -60,17 +69,20 @@ export function NewTask({ onAddNewTask, isImportantPage }) {
 					}}
 					onKeyDown={handleKeyDown}
 				/>
-				<input
-					type="date"
-					id="start"
-					name="trip-start"
-					min="1970-01-01"
-					max="2030-12-31"
-					onChange={(event) => {
-						setDate(dayjs(event.target.value));
-					}}
-				/>
-				<button type="submit"> SAVE </button>
+				{!isTodayTask && (
+					<input
+						type="date"
+						id="start"
+						name="trip-start"
+						min="1970-01-01"
+						max="2030-12-31"
+						onChange={handleDateChange}
+					/>
+				)}
+				<button type="submit" disabled={isDateSelected && !date}>
+					{" "}
+					SAVE{" "}
+				</button>
 			</form>
 		</div>
 	);

@@ -7,6 +7,7 @@ import { Sidebar } from "../Sidebar";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 import "./styles.css";
+import { NewTask } from "../tasks/NewTask";
 
 export function App() {
 	const [isSidebarVisible, setSidebarVisible] = useState(true);
@@ -26,6 +27,10 @@ export function App() {
 
 	const [parent] = useAutoAnimate();
 
+	const addNewTask = (newTask) => {
+		setTasks([...tasks, newTask]);
+	};
+
 	return (
 		<>
 			<Header toggleSidebarVisible={toggleSidebarVisible} />
@@ -35,19 +40,42 @@ export function App() {
 					<Routes>
 						<Route
 							path="/today"
-							element={<Today tasks={tasks} setTasks={setTasks} />}
+							element={
+								<>
+									<NewTask onAddNewTask={addNewTask} isTodayTask={true} />
+									<Today tasks={tasks} setTasks={setTasks} />
+								</>
+							}
 						/>
 						<Route
 							path="/important"
-							element={<Important tasks={tasks} setTasks={setTasks} />}
+							element={
+								<>
+									<NewTask onAddNewTask={addNewTask} isImportantTask={true} />
+									<Important tasks={tasks} setTasks={setTasks} />
+								</>
+							}
 						/>
 						<Route
 							path="/planned"
-							element={<Planned tasks={tasks} setTasks={setTasks} />}
+							element={
+								<>
+									<NewTask onAddNewTask={addNewTask} isDateSelected={true} />
+									<Planned tasks={tasks} setTasks={setTasks} />
+								</>
+							}
 						/>
 						<Route
 							path="/all"
-							element={<All tasks={tasks} setTasks={setTasks} />}
+							element={
+								<>
+									<NewTask
+										onAddNewTask={addNewTask}
+										// isImportantPage={isImportantPage}
+									/>
+									<All tasks={tasks} setTasks={setTasks} />
+								</>
+							}
 						/>
 					</Routes>
 				</div>

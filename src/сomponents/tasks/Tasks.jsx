@@ -88,7 +88,6 @@ export function Tasks({ title, tasks, setTasks, isImportantPage }) {
 
 	return (
 		<div ref={parent}>
-			<NewTask onAddNewTask={addNewTask} isImportantPage={isImportantPage} />
 			<h1 className="tasksTitle">{title}</h1>
 			{uncompletedTasks.map((task) => (
 				<div
