@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Today, Important, Planned, All } from "../tasks/Tasks";
+import { Today, Important, Planned, All } from "../pages/index";
 import { Header } from "../header/Header";
 import { Sidebar } from "../Sidebar";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -33,12 +33,18 @@ export function App() {
 				{isSidebarVisible && <Sidebar />}
 				<div className="tasksContainer">
 					<Routes>
-						<Route path="/today" element={<Today />} />
+						<Route
+							path="/today"
+							element={<Today tasks={tasks} setTasks={setTasks} />}
+						/>
 						<Route
 							path="/important"
 							element={<Important tasks={tasks} setTasks={setTasks} />}
 						/>
-						<Route path="/planned" element={<Planned />} />
+						<Route
+							path="/planned"
+							element={<Planned tasks={tasks} setTasks={setTasks} />}
+						/>
 						<Route
 							path="/all"
 							element={<All tasks={tasks} setTasks={setTasks} />}

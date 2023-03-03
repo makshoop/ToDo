@@ -19,7 +19,6 @@ export function NewTask({ onAddNewTask, isImportantPage }) {
 			id: Date.now(),
 			title: newTask,
 			completed: false,
-			today: false,
 			important: isImportantPage ? true : false,
 			planned: date !== null,
 			date: date,

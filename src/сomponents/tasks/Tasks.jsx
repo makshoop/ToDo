@@ -114,8 +114,8 @@ export function Tasks({ title, tasks, setTasks, isImportantPage }) {
 					</label>
 
 					<p>
-						----
-						{dayjs(task.date).format("DD.MM.YYYY")}
+						<br />
+						{task.date ? dayjs(task.date).format("DD.MM.YYYY") : ""}
 					</p>
 					<div className="taskButtons">
 						<button
@@ -181,29 +181,4 @@ export function Tasks({ title, tasks, setTasks, isImportantPage }) {
 			)}
 		</div>
 	);
-}
-
-export function All({ tasks, setTasks }) {
-	return <Tasks title="Tasks" tasks={tasks} setTasks={setTasks} />;
-}
-
-export function Planned() {
-	return <h1 className="tasksTitle">Planned</h1>;
-}
-
-export function Important({ tasks, setTasks }) {
-	const importantTasks = tasks.filter((task) => task.important);
-
-	return (
-		<Tasks
-			title="Important"
-			tasks={importantTasks}
-			setTasks={setTasks}
-			isImportantPage={true}
-		/>
-	);
-}
-
-export function Today() {
-	return <h1 className="tasksTitle">Today</h1>;
 }
