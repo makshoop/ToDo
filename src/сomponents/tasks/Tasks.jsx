@@ -191,8 +191,6 @@ export function Planned() {
 }
 
 export function Important({ tasks, setTasks }) {
-	// фильтрация tasks
-
 	const importantTasks = tasks.filter((task) => task.important);
 
 	return <Tasks title="Important" tasks={importantTasks} setTasks={setTasks} />;

@@ -21,7 +21,7 @@ export function NewTask({ onAddNewTask }) {
 			completed: false,
 			today: false,
 			important: false,
-			planned: date !== null, // set planned to true if date is selected
+			planned: date !== null,
 			date: date,
 			date1: date1,
 		};
