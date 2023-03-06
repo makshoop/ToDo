@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Today, Important, Planned, All } from "../pages/index";
+import { Today, Important, Planned, All } from "../Pages/index";
 import { Header } from "../header/Header";
 import { Sidebar } from "../Sidebar";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -73,6 +73,15 @@ export function App() {
 										onAddNewTask={addNewTask}
 										// isImportantPage={isImportantPage}
 									/>
+									<All tasks={tasks} setTasks={setTasks} />
+								</>
+							}
+						/>
+						<Route
+							path=""
+							element={
+								<>
+									<NewTask onAddNewTask={addNewTask} />
 									<All tasks={tasks} setTasks={setTasks} />
 								</>
 							}

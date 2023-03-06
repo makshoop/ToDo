@@ -5,19 +5,41 @@
       "title": "переехать в черногорию до ",
       "completed": false,
       "today": false,
-      "important": true,
+      "important": false,
       "planned": false,
       "date": "2023-03-21"
     },
     {
-      "id": 1677804774229,
-      "title": "123213123",
+      "id": 1677883837918,
+      "title": "123123123",
       "completed": false,
-      "today": false,
       "important": false,
       "planned": true,
-      "date": 1679616000000,
-      "date1": "2023-03-24"
+      "date": "2024-01-08T20:00:00.000Z"
+    },
+    {
+      "id": 1678067839285,
+      "title": "123123123",
+      "completed": false,
+      "important": false,
+      "planned": false,
+      "date": null
+    },
+    {
+      "id": 1678068671338,
+      "title": "123",
+      "completed": false,
+      "important": false,
+      "planned": true,
+      "date": "2023-03-05T20:00:00.000Z"
+    },
+    {
+      "id": 1678068690607,
+      "title": "Привет",
+      "completed": false,
+      "important": false,
+      "planned": false,
+      "date": "2023-03-06T02:11:30.607Z"
     }
   ]
 }
