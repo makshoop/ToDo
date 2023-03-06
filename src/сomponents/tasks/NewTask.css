@@ -19,7 +19,6 @@
     display: flex;
     align-items: center;
     height: 60px;
-    /* box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.173); */
     border-radius: 5px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: x-large;
@@ -39,6 +38,7 @@ input[name='calendar'] {
     background-color: rgba(246, 246, 246, 0.649);
     border: none;
     outline: none;
+   padding: 0 4px;
     width: 25vh;
 }
 
@@ -64,8 +64,3 @@ input:hover, .newTask button:hover {
 }
 
 
-@media (max-width: 850px) {
-    .newTask button {
-        width: 20%;
-    }
-}
