@@ -62,3 +62,10 @@ input[name='calendar'] {
 input:hover, .newTask button:hover {
     background-color: rgba(228, 227, 227, 0.874);
 }
+
+
+@media (max-width: 850px) {
+    .newTask button {
+        width: 20%;
+    }
+}

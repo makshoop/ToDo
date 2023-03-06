@@ -112,8 +112,7 @@ export function Tasks({ title, tasks, setTasks, isImportantPage }) {
 						</p>
 					</label>
 
-					<p>
-						<br />
+					<p className="taskDate">
 						{task.date ? dayjs(task.date).format("DD.MM.YYYY") : ""}
 					</p>
 					<div className="taskButtons">
